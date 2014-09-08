@@ -1,0 +1,19 @@
+.row
+    .col-md-9(data-ui-view autoscroll="false")
+    .col-md-3
+        ul.customer-menu(data-ng-controller='NavCtrl')
+            li 
+                i.fa.fa-cog
+                a.customer-menu-item(href='/admin/cupboard', active-nav) Manage Inventory.
+            li 
+                i.fa.fa-cog
+                a.customer-menu-item(href='/admin/write', active-nav) Write about yourself.
+            li 
+                i.fa.fa-cog
+                a.customer-menu-item(href='/admin/addrecipe', active-nav) Add a Recipe.
+            //li 
+                //i.fa.fa-cog
+                //a.customer-menu-item(href='/admin/orders', active-nav) View Orders.
+            //li 
+                //i.fa.fa-cog
+                //a.customer-menu-item(href='/admin/shop', active-nav, data-access-level='accessLevels.admin') A nested admin view

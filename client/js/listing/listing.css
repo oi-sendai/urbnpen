@@ -1,0 +1,16 @@
+.listing {
+background: rgb(215, 235, 215);
+padding: 15px;
+border-radius: 4px;
+border: 1px solid;
+}
+.listing ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+.listing ul li{
+    margin:0;
+    padding:5 0;
+    border-bottom:1px solid #c3c3c3;
+}

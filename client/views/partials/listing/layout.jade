@@ -1,0 +1,12 @@
+h1 layout
+
+.row
+    .col-md-3
+        .listing
+            ul.sidebar
+                li(ng-repeat="listing in listings")
+                    a(href="/listings/listing/{{listing._id}}") {{listing.name}}
+    .col-md-9
+        .listing(ui-view="right" autoscroll="false")        
+            h1 Welcome to the listings page
+            a(href="/listings/add") Add

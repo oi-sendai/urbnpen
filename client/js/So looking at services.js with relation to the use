@@ -1,0 +1,126 @@
+The goal today to take the authentication users array which hard coded into the system, 
+
+var users = [
+    {
+        id:         456,
+        username:   "user",
+        password:   "123",
+        role:   userRoles.user
+    },
+    {
+        id:         123,
+        username:   "happycustomer",
+        password:   "readytogo",
+        role:   userRoles.user
+    },
+    // {
+    //     id:         2,
+    //     username:   "admin",
+    //     password:   "123",
+    //     role:   userRoles.admin
+    // }
+];
+
+and to replace it with a more flexible extensible, and most importantly updatable mongoose model.
+
+
+var mongoose = require('mongoose');
+// var Tong = new mongoose.model('Tong', {
+
+// });
+var User = mongoose.model('User', {
+    id: String,
+    username : String,
+    password : String,
+    role : String,
+    email : String,
+});
+
+So looking at services.js with relation to the user model, we can see that the current user on initiation is either retreived from the browsers cookie store or else set as a default value.
+
+I have no idea what angular.extend does.
+
+The Auth factory exposes five methods, four of which accept 'user' as an argument. 
+
+Of those four, only the register, login, and logout methods are tasked with retrieving data from the server.
+
+To find which context these methods are called, and what data is being passed as the user argument, we need to look in controllers.js for the functions which call the factory service, and from here we are able to find the function names we need to cross reference with the view templates.
+
+Concentrating on the 'LoginCtrl' for now, we can see it collects three scope values from a standard angular form, and passing these collectively as a single key value pair object as the first argument of the Auth.login function, the second argument being a return url for succusful login, and the final one containing an error message string.
+
+Going back to our Auth factory methods we are now able to detirmine that when the method is called it will use the RESTful verb POST to send our user object {'username':'value','password':'value','rememberme':'value'} for processing by the Express endpoint.
+
+Looking on the server side now, in routes.js, we can see that the '/login' path is handled by AuthCtrl.login middleware. AuthCtrl is a reference to './controllers/auth' which has been defined at the top of the route.js file using Express's helper function require().
+
+The login method exposed by this controller accepts three argrments req, res, next. These are used by the node package passport's authenticate method.
+
+According to the docs the Passport API "is simple: you provide Passport a request to authenticate, and Passport provides hooks for controlling what occurs when authentication succeeds or fails."
+
+This is where the login route finishes. To look deeper than this can look within the same file for the register method. This we can see requires a reference to User which is stored in models/User.js 
+
+Further investigation of User.js show's where the local strategy called by passport is set up. This file makes use of a findByUsername function within the same file, and it is this that throws the first error when we attempt to switch to storing our users in mongodb via a mongoose connection, rather than hard coding the model inside the server files.
+
+This function uses some underscore magic to query the users array 
+
+    findByUsername: function(username) {
+        // console.log('updateListing'+req.params);
+
+        User.find({
+                username : username
+            }, function(err, user) {
+                console.log(user);
+                if (err)
+                    res.send(err);
+                return user.username === username;
+        });
+        // return _.clone(_.find(users, function(user) { return user.username === username; }));
+    },
+
+
+The next difficulty that presents itself, is that the server returns 400. 
+
+My initial thoughts where that when I hastily set up the mongosse scheama at the beginning, i was storing the userRoles object as a string. While this an important correction to make, it actually has nothing to do with the error itself
+
+Going back to the login function in auth.js I finally have an internet connection to check the docs. 
+
+It seems I need User.findOne (I was using User.find), in order to return a single result.
+
+    findByUsername: function(username) {
+        var res = null;
+        User.findOne({
+            username: username
+        },function(err, result){
+            if (err)
+                console.log('error errr');
+            console.log('inside async');
+            console.log(result);
+            res = result
+        });
+        return res;
+
+After this comes the really really difficult part, since node is a non blocking io system, which is something I can't afford to understand right now, i created a new variable inside the module.exports scope 
+    asyncHack: false,
+which is set to true with the callback from the mongoose.findOne call, and used this within the localStrategy as a simple switch for a setTimeout function.
+
+    localStrategy: new LocalStrategy(
+        function(username, password, done) {
+            console.log('localStrategy '+username);
+            console.log('localStrategy '+password);
+
+            var user = module.exports.findByUsername(username);
+            setTimeout(function(){
+                    console.log('syncronious')
+                if(asyncHack){
+                    console.log(user);
+                    console.log('asyncHack strategy')
+                    console.log(user.password);
+
+The function is still broken, as the findByUsername function is not returning any data to the user variable within the localStrategy
+
+
+
+
+
+
+
+

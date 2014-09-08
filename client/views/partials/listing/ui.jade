@@ -1,0 +1,11 @@
+.row(ng-repeat="list in listing")
+    .col-md-6
+
+        weather
+    
+    .col-md-6
+        h3.cart_name {{list.name}}
+        p contact: {{list.email}}
+        p location {{list.location}}
+        p beds available: {{list.bedsavailable}}
+        p beds required: {{list.bedsrequired}}

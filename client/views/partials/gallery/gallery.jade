@@ -1,0 +1,19 @@
+.col-md-9
+	.slider
+		img.slide.slide-animation(ng-repeat="slide in slides" 
+			ng-hide="!isCurrentSlideIndex($index)"
+			ng-src="{{slide.image}}")
+	a.arrow.next(href="#" ng-click="prevSlide()")
+		i.fa.fa-arrow-circle-left
+		
+	a.arrow.prev(href="#" ng-click="nextSlide()") 
+		i.fa.fa-arrow-circle-right
+
+.col-md-3
+	.nav
+		.wrapper
+			ul.dots
+				li.dot(ng-repeat="slide in slides") 
+					a(href="#" 
+						ng-class="{'active':isCurrentSlideIndex($index)}" 
+						ng-click="setCurrentSlideIndex($index);") {{slide.description}}

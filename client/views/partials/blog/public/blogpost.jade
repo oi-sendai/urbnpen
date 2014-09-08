@@ -1,0 +1,25 @@
+
+article.post.simpleCart_shelfItem
+    
+    img(src="/css")
+    h2.item_name Unbaked Cookies
+    p All the dry ingredients for a greedy ass pile of cookies
+    p Bake them straight away or keep them til later
+    p Pour the ingredients in a bowl before your guests arrive for that 'look guys, I bake' bling.
+    .options
+        p Not happy with regular butter? Our premium butter is greener than New Guinea BC 40,000
+        label Add premium butter
+        input(type="checkbox") 
+    .options
+        p Lazy or just lonely? Have a fully qualified cookie chef prepare the cookies at your home.
+        label Add preparation (selected locations only)
+        input(type="checkbox")
+
+    input(type="text" value="1" class="item_Quantity")
+
+    h4.price.item_price {{product.price}} &euro;
+
+    div.description
+        This is a description
+
+    a.item_add(href="javascript:;") Add to Cart

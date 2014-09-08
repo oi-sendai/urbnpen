@@ -1,0 +1,5 @@
+article.blog-post(ng-repeat="post in posts")
+    h1.post-title 
+        a(href="{{post.slug}}") {{post.title}}
+    .post-body(ng-bind-html="post.body")
+    img.post-image(src="/images/ioana/{{post.image}}")
