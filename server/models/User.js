@@ -121,10 +121,13 @@ module.exports = {
             if (err)
                 console.log('error errr');
             console.log('inside async');
+            console.log('result=')
             console.log(result);
             res = result;
-            asyncHack = true;
+            asyncHack = result;
         });
+        console.log('res=');
+        console.log(res);
         return res;
         // console.log('findByUsername');
         // // console.log('updateListing'+req.params);
@@ -185,6 +188,7 @@ module.exports = {
             setTimeout(function(){
                     console.log('syncronious')
                 if(asyncHack){
+                    user = asyncHack;
                     console.log(user);
                     console.log('asyncHack strategy')
                     console.log(user.password);
