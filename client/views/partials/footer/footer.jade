@@ -1,7 +1,6 @@
 .footer.container-fluid
     .container
         .row
-
             .col-md-3.center-stuff
                 p 
                     i.fa.fa-book.wrapped-fa
@@ -19,8 +18,8 @@
                     span.md-3-title Develop 
                     span.md-3-p ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             .col-md-3.center-stuff
-                p 
-                    i.fa.fa-paper-plane.wrapped-fa
-                    span.md-3-title Deploy 
-                    span.md-3-p ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .login.right(data-access-level='accessLevels.user' ng-controller="LoginCtrl")
+                    span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user.role.title }}
+                    a(href="", data-ng-click="logout()")
+                        | Log out
 

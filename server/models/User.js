@@ -107,7 +107,22 @@ module.exports = {
     },
 
     findById: function(id) {
-        return _.clone(_.find(users, function(user) { return user.id === id }));
+        // return _.clone(_.find(users, function(user) { return user.id === id }));
+        var res = null;
+        User.findOne({
+            _id: id
+        },function(err, result){
+            if (err)
+                console.log('error errr');
+            console.log('inside async');
+            console.log('result=')
+            console.log(result);
+            res = result;
+            asyncHack = result;
+        });
+        // console.log('res=');
+        // console.log(res);
+        // return res;
     },
 
 
@@ -126,35 +141,9 @@ module.exports = {
             res = result;
             asyncHack = result;
         });
-        console.log('res=');
-        console.log(res);
-        return res;
-        // console.log('findByUsername');
-        // // console.log('updateListing'+req.params);
-
-        // return User.findOne({
-        //         username : username
-        //     }, function(err, user) {
-        //         console.log('||findByUsername>username');
-        //         console.log(username);
-        //         console.log('||findByUsername>user');
-        //         console.log(user);
-        //         console.log('||findByUsername>user.username');
-        //         console.log(user.username);
-        //         console.log('||findByUsername>user.username === username');
-        //         console.log(user.username === username);
-        //         if (err)
-        //             res.send(err);
-        //         return user.username === username;
-                
-        // });
-        // console.log('ouput');
-        // return true;
-        // console.log(thing);
-        // return output;
-        // console.log(users);
-        // console.log(username);
-        // return _.clone(_.find(users, function(user) { return user.username === username; }));
+        // console.log('res=');
+        // console.log(res);
+        // return res;
     },
 
 
@@ -188,7 +177,8 @@ module.exports = {
             setTimeout(function(){
                     console.log('syncronious')
                 if(asyncHack){
-                    user = asyncHack;
+                    user = asyncHack; 
+                    asyncHack = false;
                     console.log(user);
                     console.log('asyncHack strategy')
                     console.log(user.password);
@@ -270,13 +260,24 @@ module.exports = {
     //     );
     // },
     serializeUser: function(user, done) {
-        done(null, user.id);
+        console.log('serializeUser');
+        console.log(user, done);
+        done(null, user._id);
     },
 
     deserializeUser: function(id, done) {
+        console.log('deserializeUser');
+        console.log(id);
+        console.log(done);
         var user = module.exports.findById(id);
+        setTimeout(function(){
+            if(asyncHack){
+                user = asyncHack; 
+                asyncHack = false;
+                if(user) { done(null, user); }
+                    else { done(null, false); }
 
-        if(user)    { done(null, user); }
-        else        { done(null, false); }
+            }
+        }, 300);
     }
 };

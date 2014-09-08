@@ -27,7 +27,8 @@ eshoprShop.controller('LoginCtrl',
                 rememberme: $scope.rememberme
             },
             function(res) {
-                $location.path('/private/');
+                console.log('activated route');
+                $location.path('/admin/');
             },
             function(err) {
                 $rootScope.error = "Failed to login";

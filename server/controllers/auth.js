@@ -27,7 +27,8 @@ module.exports = {
 
         passport.authenticate('local', function(err, user) {
             console.log('passport auth called');
-console.log(user);
+            console.log(user);
+            console.log(err);
             if(err)     { return next(err); }
             if(!user)   { return res.send(400); }
 

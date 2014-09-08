@@ -145,7 +145,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             abstract: true,
             templateUrl: 'admin',
             data: {
-                access: access.public
+                access: access.user
             }
         })
         // Private
