@@ -31,7 +31,8 @@ var eshoprShop = angular.module('eshoprShop', [
     'addListingController',
     'weatherDirective',
     // 'userController',
-    'galleryController'
+    'galleryController',
+    // 'pagination'
     ]);
 
 eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 
@@ -68,8 +69,8 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         // Home
         .state('anon.home', {
             url: '/',
-            // templateUrl: 'public'
-            // templateUrl: 'page/ngview',
+            templateUrl: 'blog/public/list',
+            controller: 'publicBlogController'
         })
         // Home Three
         .state('anon.login', {
@@ -85,17 +86,8 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         // Register
         .state('anon.recipes', {
-            url: '/recipes/',
-            templateUrl: 'graphs/plot1',
-            controller: 'graphsController'
-        })
-        // Recipe
-        .state('anon.recipe', {
-            url: '/recipes/:recipe_id',
-            templateUrl: 'recipes/recipe',
-            controller: function($scope, $stateParams) {
-                $scope.foo = $stateParams.recipe_id;
-            }
+            url: '/biography/',
+            templateUrl: 'biography',
         });
 
     // Gallery Routes
@@ -137,6 +129,15 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                     controller: 'publicBlogController'
                     // templateUrl: 'blog/public/sidebar',
                 }
+            }
+        })
+        .state('anon.blog.post', {
+          url: 'posts/:postID',
+          views:{
+            'right':{
+              templateUrl:'blog/public/list',
+              controller: 'publicBlogController'
+              }
             }
         });
 

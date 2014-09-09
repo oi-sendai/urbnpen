@@ -1,5 +1,9 @@
-article.blog-post(ng-repeat="post in posts")
+{{curPage}}
+{{pageSize}}
+article.blog-post(ng-repeat="post in posts | pagination: curPage * pageSize | limitTo: pageSize")
     h1.post-title 
-        a(href="{{post.slug}}") {{post.title}}
+        a(href="/blog/posts/{{post._id}}") {{post.title}}
     .post-body(ng-bind-html="post.body")
     img.post-image(src="/images/ioana/{{post.image}}")
+
+
