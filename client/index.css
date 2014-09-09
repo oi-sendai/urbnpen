@@ -5,7 +5,25 @@ body{
 .navbar.custom {
     background: green;
 }
-
+header{
+    position:relative;
+}
+ul.header-menu {
+list-style: none;
+padding: 15px;
+width: 400px;
+margin: 0;
+background: #c3c3c3;
+}
+ul.header-menu li a {
+background:#8EA38E;
+border-bottom: 1px solid rgb(37, 29, 29);
+padding: 6px;
+border-radius: 6px;
+margin-bottom: 3px;
+color:#C44D4D;
+font-size: 23px;
+}
 h1.logo {
 background: url('images/logo.png') no-repeat left bottom white;
 border-radius: 0 0 4px 4px;
@@ -16,6 +34,11 @@ height: 98px;
 width: 400px;
 margin: 0;
 padding: 20px 0 0 0;
+}
+header .fa {
+    position:absolute;
+    top: 15px;
+    color:#C44D4D;
 }
 .main-view-container {
     background: url('images/penguin.png') no-repeat top right;

@@ -8,6 +8,7 @@ eshoprShop.controller('NavCtrl', ['$rootScope', '$scope', '$location', 'Auth', f
     $scope.accessLevels = Auth.accessLevels;
 
     $scope.logout = function() {
+        console.log('logout')
         Auth.logout(function() {
             $location.path('/');
         }, function() {

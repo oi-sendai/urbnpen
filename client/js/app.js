@@ -18,6 +18,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'publicBlogController',
     'adminBlogController',
     'sidebarBlogController',
+    'headerController',
     'headerDirective',
     'footerDirective',
     'textAngular',
