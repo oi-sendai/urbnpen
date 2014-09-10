@@ -53,12 +53,27 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
   var url = "/api/posts";
 
   factory.getPosts = function () {
-    return $http.get(url);
+    // store the returned object
+      // var items = items(){
+      //   // this i think is an example of a closure
+        return $http.get(url);
+      // };
+
+      // return {
+      //   get: function(offset, limit) {
+      //     return items.slice(offset, offset+limit);
+      //   },
+      //   total: function() {
+      //     return items.length;
+      //   }
+      // };
   };
+
   factory.showPost = function (id) {
     console.log('called api');
     return $http.get(url + '/' + id);
   };
+
   factory.insertPost = function (dataObject) {
     console.log(dataObject);
     return $http.post(url, dataObject);
