@@ -109,9 +109,6 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             views:{
                 'main':{
                     templateUrl: 'about/about',
-                },
-                'sidebar': {
-                    templateUrl: '<h3>Sidebar</h3>'
                 }
             }
 

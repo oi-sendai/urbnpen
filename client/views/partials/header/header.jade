@@ -1,13 +1,13 @@
 header(ng-controller="headerController")
     ul.header-menu(collapse="!isCollapsed")
         li 
-            a(href="/") HOME
+            a(href="/" ng-click="isCollapsed = false") HOME
         //li
-           //a(href="/collections") COLLECTIONS
+           //a(href="/collections" ng-click="isCollapsed = false") COLLECTIONS
         li
-            a(href="/biography") BIOGRAPHY
+            a(href="/biography" ng-click="isCollapsed = false") BIOGRAPHY
         li
-            a(href="/contact") CONTACT
+            a(href="/contact" ng-click="isCollapsed = false") CONTACT
     h1.logo urban penguin
     a(href="#" ng-click="isCollapsed = !isCollapsed") 
         i.fa.fa-bars

@@ -93,9 +93,13 @@ li.dot a img {
     background: brown;
 }
 .footer {
-    height:300px;
+    /*height:300px;*/
+    padding:15px;
     background: url('images/green-tile.png') !important;
 
+}
+.footer p {
+    color:white;
 }
 .private {
     background: gainsboro;
@@ -134,7 +138,21 @@ input.form.textarea {
     margin-top:50px;
 }
 h2.thanks {
-    text-align: cen
+    text-align: center;
+}
+ul.blog-list{
+    list-style: none;
+}
+ul.blog-list li{
+background: rgb(82, 76, 76);
+width: 150px;
+padding: 10px;
+border-radius: 4px;
+margin-top: 10px;
+}
+ul.blog-list li a{
+    color:snow;
+    font-weight: bold;
 }
 /* ANIMATION STYLINGS
 ============================================================================= */
