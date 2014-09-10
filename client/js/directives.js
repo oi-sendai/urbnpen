@@ -77,3 +77,18 @@ pinItDirective.directive( 'pin', function(
     }
 
 });
+
+var tumblrDirective = angular.module('tumblrDirective', []);
+
+tumblrDirective.directive( 'tumble', function(
+  $stateParams
+  ) {
+    return {
+      restrict: 'AE',
+      replace: true,
+      template: '<a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:82px; height:32px; margin:0px 0px 0px 12px; background:url(\'http://platform.tumblr.com/v1/share_2.png\') top left no-repeat transparent;">Share on Tumblr</a>',
+    }
+
+});
+
+
