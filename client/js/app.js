@@ -15,6 +15,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'aboutController',
     'aboutAdminController',
     'contactController',
+    'successController',
     'orderController',
     'galleryController',
     // 'LocalStorageModule',
@@ -110,7 +111,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                     templateUrl: 'about/about',
                 },
                 'sidebar': {
-                    template: '<h3>Sidebar</h3>'
+                    templateUrl: '<h3>Sidebar</h3>'
                 }
             }
 
@@ -131,8 +132,21 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         .state('anon.contact', {
             url: '/contact/',
-            templateUrl: 'contact/contact',
-            controller: 'contactController'
+            views:{
+                'main':{
+                    templateUrl: 'contact/contact',
+                    controller: 'contactController'
+                }
+            }
+        })
+        .state('anon.success', {
+            url: '/success/',
+            views:{
+                'main':{
+                    templateUrl: 'contact/success',
+                    controller: 'successController'
+                }
+            }
         });
 
 

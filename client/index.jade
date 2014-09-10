@@ -69,7 +69,7 @@ html(lang='en', data-ng-app='eshoprShop')
         // Shop Plugin
         script(src='/js/shop/product/productController.js')
         script(src='/js/shop/checkout/checkoutController.js')
-        script(src='/js/shop/contactController.js')
+        //script(src='/js/shop/contactController.js')
         script(src='/js/shop/order/orderController.js')
         script(src='/js/shop/libs/simpleCart.js')
         script(src='/components/angular-cookies/angular-cookies.js')
@@ -180,6 +180,11 @@ html(lang='en', data-ng-app='eshoprShop')
             include views/partials/gallery/gallerysidebar
 
         // Contact
+        script(src='/js/contact/contactController.js')
+
         script(type="text/ng-template", id="contact/contact")
             include views/partials/contact/contact
+        script(type="text/ng-template", id="contact/success")
+            include views/partials/contact/success
+
 

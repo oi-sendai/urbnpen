@@ -1,1 +1,9 @@
-h1 This is the contact form
+.row.contact-form
+    .col-md-8.col-md-offset-2
+        form(name="myForm"  ng-controller="contactController" ng-submit="createOrder()")
+            input.form(type="text" placeholder="Name" ng-model="formData.name")
+            input.form(type="text" placeholder="Email" ng-model="formData.email")
+            input.textarea.form(type="textarea" placeholder="Message" ng-model="formData.message")
+            button.form-control.btn(type="submit" id="submitnew" value="Create") Send
+
+           

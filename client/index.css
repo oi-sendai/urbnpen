@@ -114,6 +114,28 @@ li.dot a img {
 .private a {
     color:#6B6651;
 }
+
+/*// Contact*/
+
+input.form {
+    padding: 5px;
+    border-radius: 4px;
+    border: 2px solid #746C6C;
+    width: 100%;
+    box-shadow: 0px 0px 1px 1px #C48888;
+    margin-bottom:25px;
+    /*line-height: 1rem;*/
+}
+input.form.textarea {
+    height:120px;
+}
+
+.contact-form {
+    margin-top:50px;
+}
+h2.thanks {
+    text-align: center;
+}
 /* ANIMATION STYLINGS
 ============================================================================= */
 /*.container {

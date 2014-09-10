@@ -5,19 +5,42 @@ contactController.controller('contactController',
   $scope, 
   $rootScope,
   $http, 
+  $state,
   OrderFactory
   ) {
-    $scope.debug = 'js/blog/public/contactController';
-    $rootScope.class="contact"
+    $scope.debug = 'js/contact/contactController';
+    $rootScope.class="contact";
     $scope.formData = {};
+    $rootScope.thankyou = {};
 
 
     $scope.createOrder = function(){
+      console.log('does this fire');
       OrderFactory.insertOrder($scope.formData).then(function(response) {
 
-      console.log(response);
-      $scope.formData = {}; // clear the form so our user is ready to enter another
-      // $scope.ingredients = response.data;
-    }); 
-  }
+        console.log(response);
+        console.log('this does not fire');
+        // $scope.ingredients = response.data;
+      }); 
+      console.log('does this fire');
+        $rootScope.thankyou = 'test';//$scope.formData.name;
+        $scope.formData = {}; // clear the form so our user is ready to enter another
+        $scope.apply = {}
+        $state.go('anon.success');
+    }
 });
+var successController = angular.module('successController',[]);
+successController.controller('successController',
+  function(
+  $scope, 
+  $rootScope,
+  $http, 
+  $state,
+  OrderFactory
+  ) {
+    $scope.debug = 'js/contact/successController';
+    $rootScope.class="success";
+
+    $scope.thankyou = $rootScope.thankyou;
+});
+
