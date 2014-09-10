@@ -3,14 +3,15 @@ var galleryController = angular.module('galleryController', ['ngAnimate']);
 
 galleryController.controller('galleryController', function(
     $resource,
-    $scope, 
+    $scope,
+    $rootScope, 
     $http,
     RecipeFactory,
     IngredientFactory
     ) { 
 
   	$scope.works = 'js/gallery/galleryController';
-
+    $rootScope.class ="gallery";
 	$scope.slides = [
 	    // {image: '/images/ioana/p1.jpg', description: 'Image 00'},
 	    {image: '/images/ioana/p2.jpg', description: 'Image 01'},
@@ -18,6 +19,17 @@ galleryController.controller('galleryController', function(
 	    {image: '/images/ioana/p4.jpg', description: 'Image 03'},
 	    {image: '/images/ioana/p5.jpg', description: 'Image 04'}
 	];
+
+    $scope.modalInstance = $modal.open({
+      templateUrl: 'gallery/gallerymodal',
+      controller: ModalInstanceCtrl,
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
 	      $scope.currentIndex = 0;
 
         $scope.setCurrentSlideIndex = function (index) {

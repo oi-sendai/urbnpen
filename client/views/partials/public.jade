@@ -1,7 +1,10 @@
-.container-fluid.main-view-container
+.container-fluid.main-view-container(ng-class="class")
     .row
-        .col-md-6
+        .col-lg-6
             .row
                 .col-md-8.col-md-offset-4.ui-view-container
                     shopheader
-                    .main-view(data-ui-view autoscroll="false")
+                    .main-view(ui-view="main" autoscroll="false")
+        .col-lg-6
+            .side-view(ui-view="sidebar")
+

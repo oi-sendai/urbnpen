@@ -5,33 +5,29 @@ var eshoprShop = angular.module('eshoprShop', [
     'ui.router',
     'ngResource',
     'ngAnimate',
-    // 'LocalStorageModule',
-    // 'angularFileUpload',
-    'ngCookies',
-    'cupboardController',
-    'pageController',
-    'clockController',
-    'recipesController',
-    // 'graphsController',
-    // 'graphsDirective',
-    // 'questionsController',
-    'publicBlogController',
-    'adminBlogController',
-    'sidebarBlogController',
+    'textAngular',
     'headerController',
     'headerDirective',
     'footerDirective',
-    'textAngular',
-    'productController',
-    'checkoutController',
+    'publicBlogController',
+    'adminBlogController',
+    'sidebarBlogController',
+    'aboutController',
+    'aboutAdminController',
     'contactController',
     'orderController',
-    'listingController',
-    'uiController',
-    'addListingController',
-    'weatherDirective',
-    // 'userController',
     'galleryController',
+    // 'LocalStorageModule',
+    // 'angularFileUpload',
+    // 'cupboardController',
+    // 'pageController',
+    // 'productController',
+    // 'checkoutController',
+    // 'listingController',
+    // 'uiController',
+    // 'addListingController',
+    // 'weatherDirective',
+    // 'userController',
     // 'pagination'
     ]);
 
@@ -69,34 +65,76 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         // Home
         .state('anon.home', {
             url: '/',
-            templateUrl: 'blog/public/list',
-            controller: 'publicBlogController'
+            views:{
+                'main':{
+                    templateUrl:'blog/public/list',
+                    controller: 'publicBlogController'
+                },
+                'sidebar': {
+                    templateUrl: 'blog/public/sidebar',
+                    controller: 'publicBlogController'
+                }
+            }
         })
-        // Home Three
+        // Single Post
+        .state('anon.blog.post', {
+            url: 'posts/:postID',
+            views:{
+                'main':{
+                    templateUrl:'blog/public/list',
+                    controller: 'publicBlogController'
+                },
+                'sidebar': {
+                    templateUrl: 'blog/public/sidebar',
+                    controller: 'publicBlogController'
+                }
+            }
+        })
+        // Login
         .state('anon.login', {
             url: '/login/',
             templateUrl: 'login',
             controller: 'LoginCtrl'
         })
-        // Login
+        // Register
         .state('anon.register', {
             url: '/register/',
             templateUrl: 'register',
             controller: 'RegisterCtrl'
         })
-        // Register
-        .state('anon.recipes', {
+        // About
+        .state('anon.about', {
             url: '/biography/',
-            templateUrl: 'biography',
+            views:{
+                'main':{
+                    templateUrl: 'about/about',
+                },
+                'sidebar': {
+                    template: '<h3>Sidebar</h3>'
+                }
+            }
+
+        })
+        .state('anon.collections', {
+            url: '/collections/',
+            views:{
+                'main':{
+                    templateUrl: 'gallery/gallery',
+                    controller: 'galleryController'
+                },
+                'sidebar': {
+                    templateUrl: 'gallery/gallerysidebar',
+                    controller: 'galleryController'
+                }
+            }
+            
+        })
+        .state('anon.contact', {
+            url: '/contact/',
+            templateUrl: 'contact/contact',
+            controller: 'contactController'
         });
 
-    // Gallery Routes
-    $stateProvider
-        .state('anon.gallery', {
-            url: '/gallery/',
-            templateUrl: 'gallery/gallery',
-            controller: 'galleryController'
-        });
 
     // Contact Submissions
     $stateProvider
@@ -109,37 +147,6 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             }
         });
 
-    // //Blog Routes
-    $stateProvider
-        .state('anon.blog', {
-            url: '/blog/',
-             templateUrl: 'blog/public/list',
-            controller: 'publicBlogController'
-        })
-        .state('anon.blog.posts', {
-            url: 'posts/', 
-            // note how it begins with no slash for follow from its ancestor /blog/
-            controller: 'publicBlogController',
-            views: {
-                'main': {
-                    templateUrl: 'blog/public/list',
-                },
-                'sidebar': {
-                    templateUrl: 'blog/public/sidebar',
-                    controller: 'publicBlogController'
-                    // templateUrl: 'blog/public/sidebar',
-                }
-            }
-        })
-        .state('anon.blog.post', {
-          url: 'posts/:postID',
-          views:{
-            'right':{
-              templateUrl:'blog/public/list',
-              controller: 'publicBlogController'
-              }
-            }
-        });
 
     // Admin routes
     $stateProvider
@@ -147,7 +154,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             abstract: true,
             templateUrl: 'admin',
             data: {
-                access: access.user
+                access: access.public
             }
         })
         // Private
@@ -159,6 +166,11 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             url: 'write/',
             controller: 'adminBlogController',
             templateUrl: 'blog/admin/write'
+        })
+        .state('admin.admin.about', {
+            url: 'about/',
+            controller: 'aboutAdminController',
+            templateUrl: 'about/edit'
         })
         // Private Welcome
         // .state('user.private.welcome', {

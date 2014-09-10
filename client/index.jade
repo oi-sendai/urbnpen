@@ -42,7 +42,6 @@ html(lang='en', data-ng-app='eshoprShop')
         script(src='/components/jquery/dist/jquery.js')
         script(src='/components/gsap/src/uncompressed/TimelineMax.js')
         script(src='/components/gsap/src/uncompressed/TweenMax.js')
-        script(src='/js/graphs/jquery.flot.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.js')
         script(src='/js/routingConfig.js')
         script(src='/js/app.js')
@@ -53,12 +52,7 @@ html(lang='en', data-ng-app='eshoprShop')
         script(src='/js/api.js')
         script(src='/js/cupboardController.js')
         script(src='/js/page/pageController.js')
-        script(src='/js/clock/clockController.js')
         script(src='/js/recipes/recipesController.js')
-        //script(src='/js/graphs/graphsDirective.js')
-        //script(src='/js/graphs/graphsController.js')
-        //script(src='/js/graphs/questionsController.js')
-        //script(src='/js/graphs/responseController.js')
 
         // users
         script(src='/js/user/userController.js')
@@ -92,6 +86,10 @@ html(lang='en', data-ng-app='eshoprShop')
 
         //script(src="js/listing/tools/toolController.js")
         //script(src="js/listing/libs/.js")
+
+        // About
+        script(src="/js/about/aboutController.js")
+        script(src="/js/about/aboutAdminController.js")
 
         // Gallery
         script(src="/js/gallery/galleryController.js")
@@ -161,15 +159,12 @@ html(lang='en', data-ng-app='eshoprShop')
             include views/partials/listing/ui
         script(type="text/ng-template", id="listing/add")
             include views/partials/listing/add
-        //script(type="text/ng-template", id="listing
-        //script(type="text/ng-template", id="listing/tools/conditions")
-            //include views/partials/listing/tools/conditions
-        //script(type="text/ng-template", id="listing/tools/localities")
-            //include views/partials/listing/tools/localities
-        //script(type="text/ng-template", id="listing/tools/tool")
-            //include views/partials/listing/add
-        //script(type="text/ng-template" id="listing/tools/layout")
-            //include views/partials/listing/tools/layout
+
+        // About
+        script(type="text/ng-template", id="about/about")
+            include views/partials/about/about  
+        script(type="text/ng-template", id="about/edit")
+            include views/partials/about/edit
 
         // User
         script(type="text/ng-template", id="user/layout")
@@ -179,5 +174,11 @@ html(lang='en', data-ng-app='eshoprShop')
 
         // Gallery
         script(type="text/ng-template", id="gallery/gallery")
-            include views/partials/gallery/gallery       
+            include views/partials/gallery/gallery
+        script(type="text/ng-template", id="gallery/gallerysidebar")
+            include views/partials/gallery/gallerysidebar
+
+        // Contact
+        script(type="text/ng-template", id="contact/contact")
+            include views/partials/contact/contact
 

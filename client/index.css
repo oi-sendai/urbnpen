@@ -40,10 +40,13 @@ header .fa {
     top: 15px;
     color:#C44D4D;
 }
-.main-view-container {
+.main-view-container.blog {
     background: url('images/penguin.png') no-repeat top right;
+}
+.main-view-container {
     min-height: 600px;
 }
+
 .post-image {
     width:370px;
 }
@@ -58,7 +61,16 @@ ul.customer-menu {
 /*ul.customer-menu li {
     float: left;
 }*/
-
+ul.dots {
+    list-style: none;
+}
+li.dot {
+    margin:0 10px 10px 0;
+    float: left
+}
+li.dot a img {
+    height:70px;
+}
 /* style.css */
 
 .blog-post {
