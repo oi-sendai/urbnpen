@@ -12,6 +12,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'publicBlogController',
     'adminBlogController',
     'sidebarBlogController',
+    'postController',
     'aboutController',
     'aboutAdminController',
     'contactController',
@@ -78,16 +79,16 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             }
         })
         // Single Post
-        .state('anon.blog.post', {
-            url: 'posts/:postID',
+        .state('anon.post', {
+            url: '/post/:postID',
             views:{
                 'main':{
-                    templateUrl:'blog/public/list',
-                    controller: 'publicBlogController'
+                    templateUrl:'blog/public/post',
+                    controller: 'postController'
                 },
                 'sidebar': {
-                    templateUrl: 'blog/public/sidebar',
-                    controller: 'publicBlogController'
+                    // templateUrl: 'blog/public/sidebar',
+                    // controller: 'publicBlogController'
                 }
             }
         })

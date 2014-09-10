@@ -56,6 +56,7 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
     return $http.get(url);
   };
   factory.showPost = function (id) {
+    console.log('called api');
     return $http.get(url + '/' + id);
   };
   factory.insertPost = function (dataObject) {

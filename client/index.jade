@@ -10,6 +10,9 @@ html(lang='en', data-ng-app='eshoprShop')
 
         link(href="/index.css", rel="stylesheet")
 
+        // Contact
+        //link(href="/js/contact/success-animate.css")
+
         // Gallery
         link(href="/js/gallery/gallery.css", rel="stylesheet")
 
@@ -61,6 +64,7 @@ html(lang='en', data-ng-app='eshoprShop')
         script(src='/js/blog/admin/adminBlogController.js')
         script(src='/js/blog/public/publicBlogController.js')
         script(src='/js/blog/public/sidebarBlogController.js')
+        script(src='/js/blog/public/postController.js')
         script(src='/js/blog/libs/bootstrap-colorpicker.js')
         script(src='/components/textAngular/src/textAngular-sanitize.js')
         script(src='/components/textAngular/src/textAngular.js')
@@ -135,7 +139,6 @@ html(lang='en', data-ng-app='eshoprShop')
         script(type="text/ng-template", id="register")
             include views/partials/register
 
-
         script(type="text/ng-template", id="recipes/recipes")
             include views/partials/recipes/recipes
         script(type="text/ng-template", id="recipes/recipe")
@@ -150,6 +153,8 @@ html(lang='en', data-ng-app='eshoprShop')
             include views/partials/blog/public/sidebar
         script(type="text/ng-template", id="blog/public/list")
             include views/partials/blog/public/list
+        script(type="text/ng-template", id="blog/public/post")
+            include views/partials/blog/public/post
         script(type="text/ng-template", id="blog/admin/write")
             include views/partials/blog/admin/write
 
@@ -181,6 +186,7 @@ html(lang='en', data-ng-app='eshoprShop')
 
         // Contact
         script(src='/js/contact/contactController.js')
+        script(src='/js/contact/successController.js')
 
         script(type="text/ng-template", id="contact/contact")
             include views/partials/contact/contact

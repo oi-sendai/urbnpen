@@ -230,7 +230,7 @@ var routes = [
         path: '/api/posts/:post_id',
         httpMethod: 'GET',
         middleware: [function (req, res) {
-
+            PostCtrl.getPost(req, res)
         }],
         accessLevel: accessLevels.public
     },

@@ -1,7 +1,10 @@
-article.blog-post(ng-repeat="post in posts") 
+article.blog-post(ng-repeat="post in posts" ) 
     h1.post-title 
-        a(href="/blog/posts/{{post._id}}") {{post.title}}
+        a(href="/post/{{post._id}}") {{post.title}}
     .post-body(ng-bind-html="post.body")
     //img.post-image(src="/images/ioana/{{post.image}}")
+    br
+    hr
+    h4 share on  facebook  twitter  tumblr pinterest 
 
 

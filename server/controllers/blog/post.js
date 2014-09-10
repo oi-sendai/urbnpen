@@ -51,7 +51,19 @@ module.exports = {
                     res.send(err);
                 res.json(post);
         });
-	}
+	},
+    getPost: function(req, res) {
+        console.log('getPost'+req.params);
+
+        Post.find({
+                _id : req.params.post_id
+            }, function(err, post) {
+                console.log(post);
+                if (err)
+                    res.send(err);
+                res.json(post);
+        });
+    }
 }
 
          /** CREATE Unit Test - jquery.post should add something to the database

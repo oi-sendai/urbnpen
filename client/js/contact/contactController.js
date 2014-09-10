@@ -23,24 +23,9 @@ contactController.controller('contactController',
         // $scope.ingredients = response.data;
       }); 
       console.log('does this fire');
-        $rootScope.thankyou = 'test';//$scope.formData.name;
+        $rootScope.thankyou = $scope.formData.name;//$scope.formData.name;
         $scope.formData = {}; // clear the form so our user is ready to enter another
         $scope.apply = {}
         $state.go('anon.success');
     }
 });
-var successController = angular.module('successController',[]);
-successController.controller('successController',
-  function(
-  $scope, 
-  $rootScope,
-  $http, 
-  $state,
-  OrderFactory
-  ) {
-    $scope.debug = 'js/contact/successController';
-    $rootScope.class="success";
-
-    $scope.thankyou = $rootScope.thankyou;
-});
-

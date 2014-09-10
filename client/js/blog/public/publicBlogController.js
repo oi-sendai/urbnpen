@@ -11,6 +11,9 @@ publicBlogController.controller('publicBlogController',function(
   ) {
     $scope.debug = 'js/blog/public/publicBlogController';
     $rootScope.class ="blog";
+
+    $scope.postID = $stateParams.postID;
+
     function init() {
       PostFactory.getPosts().then(function(response) {
         console.log(response)
@@ -26,15 +29,15 @@ publicBlogController.controller('publicBlogController',function(
     // };
 });
 
-// eshoprShop.filter('pagination', function() {
-//   return function(input, start) {
-//     // console.log(input);
-//     // console.log(start);
-//     start = +start;
-//     // console.log(start);
-//     return input.slice(start);
-//   };
-// });
+eshoprShop.filter('pagination', function() {
+  return function(input, start) {
+    // console.log(input);
+    // console.log(start);
+    start = +start;
+    // console.log(start);
+    return input.slice(start);
+  };
+});
 
 
 
