@@ -13,6 +13,7 @@ galleryController.controller('galleryController', function(
 
   	$scope.works = 'js/gallery/galleryController';
     $rootScope.class ="gallery";
+
 	$scope.slides = [
 	    // {image: '/images/ioana/p1.jpg', description: 'Image 00'},
 	    {image: '/images/ioana/p2.jpg', description: 'Image 01'},
@@ -25,7 +26,7 @@ galleryController.controller('galleryController', function(
       templateUrl: 'gallery/gallerymodal',
       // template: '<p>this is the modal</p>',
       controller: $scope.ModalInstanceCtrl,
-      size: 'large',
+      size: 'lg',
       resolve: {
         items: function () {
           return $scope.items;

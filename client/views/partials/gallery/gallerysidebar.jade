@@ -1,32 +1,12 @@
 ul.dots
     li.dot(ng-repeat="slide in slides") 
-        a(href="#")
+        a(href="#" ng-click="open('sm')") 
             img.slide.slide-animation(
                 ng-src="{{slide.image}}"
                 title="{{slide.description}}")
 // ng-hide="!isCurrentSlideIndex($index)"
 // ng-click="setCurrentSlideIndex($index);") 
 // ng-class="{'active':isCurrentSlideIndex($index)}" 
-
-
-        .modal-header
-            h3.modal-title I'm a modal!
-
-        .modal-body
-            p 
-                | if you insert it with a link
-                | a(alt="{{<this method contains a description of a word}}" data-href="link to modal") and a description. It is possible to also finish the demo feature your are coding for 
-                | for a prospective client
-
-                li(ng-repeat="item in items")
-                    a(ng-click="selected.item = item") {{ item }}
-
-            Selected:  b {{ selected.item }}
-        .modal-footer
-            button.btn.btn-primary(ng-click="ok()") OK
-            button.btn.btn-warning(ng-click="cancel()") Cancel
-
-
 
     button.btn.btn-default(ng-click="open('lg')") Large modal
     button.btn.btn-default(ng-click="open('sm')") Small modal
