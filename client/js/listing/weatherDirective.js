@@ -11,8 +11,8 @@ weatherDirective.directive( 'weather', function(
       link: function(scope, elem, attrs) {
         console.log(scope.list.location);
         var we = scope.list.location;
-console.log(we);
-          $.simpleWeather({
+        console.log(we);
+        $.simpleWeather({
                 location: we,
         //     woeid: '',
         //     unit: 'f',

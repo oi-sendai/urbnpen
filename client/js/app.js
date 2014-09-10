@@ -19,6 +19,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'successController',
     'orderController',
     'galleryController',
+    'pinItDirective'
     // 'LocalStorageModule',
     // 'angularFileUpload',
     // 'cupboardController',

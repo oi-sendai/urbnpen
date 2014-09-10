@@ -64,3 +64,16 @@ eshoprShop.directive('activeNav', ['$location', function($location) {
     }
 
 }]);
+
+var pinItDirective = angular.module('pinItDirective', []);
+
+pinItDirective.directive( 'pin', function(
+  $stateParams
+  ) {
+    return {
+      restrict: 'AE',
+      replace: true,
+      template: '<a class="pinterest-button" href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-lang="ja" data-pin-height="28"><img class="pinterest-button" src="//assets.pinterest.com/images/pidgets/pinit_fg_ja_rect_gray_28.png"/></a>',
+    }
+
+});
