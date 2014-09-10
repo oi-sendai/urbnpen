@@ -36,10 +36,5 @@ publicBlogController.controller('publicBlogController',function(
 //   };
 // });
 
-var sidebarBlogController = angular.module('sidebarBlogController',[]);
 
-sidebarBlogController.controller('sidebarBlogController',
-  function($scope){
-    $scope.debug = 'js/blog/public/sidebarBlogController';
-});
 

@@ -6,6 +6,7 @@ galleryController.controller('galleryController', function(
     $scope,
     $rootScope, 
     $http,
+    $modal,
     RecipeFactory,
     IngredientFactory
     ) { 
@@ -22,14 +23,19 @@ galleryController.controller('galleryController', function(
 
     $scope.modalInstance = $modal.open({
       templateUrl: 'gallery/gallerymodal',
-      controller: ModalInstanceCtrl,
-      size: size,
+      // template: '<p>this is the modal</p>',
+      controller: $scope.ModalInstanceCtrl,
+      size: 'large',
       resolve: {
         items: function () {
           return $scope.items;
         }
       }
     });
+    $scope.ModalInstanceCtrl = function(){
+        return 'this could be a directive'+'is this an example of a closure';
+    }
+
 	      $scope.currentIndex = 0;
 
         $scope.setCurrentSlideIndex = function (index) {

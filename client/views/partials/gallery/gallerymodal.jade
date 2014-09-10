@@ -1,1 +1,11 @@
-gallerymodal.jade
+.modal-header
+    h3.modal-title I'm a modal!
+.modal-body
+    ul
+        li(ng-repeat="item in items")
+            a(ng-click="selected.item = item{{ item }}")
+            Selected: <b>{{ selected.item }}</b>
+
+.modal-footer
+    button.btn.btn-primary(ng-click="ok()") OK
+    button.btn.btn-warning(ng-click="cancel()") Cancel
