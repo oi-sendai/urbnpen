@@ -14,6 +14,15 @@ var express =           require('express')
     , User =            require('./server/models/User.js')
     , credentials =     require('./credentials');
 
+
+
+
+    var multer = require('multer');
+
+
+
+
+
 // mongoose.connect("localhost","cool");//credentials.mongoose);   // connect to mongoDB database on modulus.io
 mongoose.connect(credentials.mongoose);   // connect to mongoDB database on modulus.io
 
@@ -23,8 +32,13 @@ app.set('views', __dirname + '/client');
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded());
+    app.use(multer({
+ 
+          dest: './uploads/'
+ 
+}));
 app.use(bodyParser.json());
-app.use(bodyParser({uploadDir:'./client/css'}));
+// app.use(bodyParser({uploadDir:'./client/css'}));
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(cookieParser());

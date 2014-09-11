@@ -1,0 +1,15 @@
+Dear Employer
+
+I am a self taught javascript engineer with a background in industrial design and Wordpress development.
+
+Currently I am developing a set of modular scaffolding for a MEAN application boilerplate, with the aim of becoming a more useful programmer.
+
+It's slow going, trying to learn every single aspect of a large technology stack, and to implement a full set of features across libraries and technologies.
+
+I think I am very much ready to take up employment with a company, wth the goal of being a assigned a more specific role as part of a team.
+
+It's my hope that https://github.com/thejoyofnotworking/urbnpen which is my latest set of work, should show enough competence and hopefully a little flair, and that it will be enough to gain an interview with your organisation.
+
+Kind regards
+
+Andrew

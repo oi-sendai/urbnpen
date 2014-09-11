@@ -22,6 +22,33 @@ var Recipe = mongoose.model('Recipe', {
 // routes.push(ListinMdl.listingModel);
 
 var routes = [
+    
+    // Media Server
+    {
+        path: 'api/uploads',
+        httpMethod: 'POST',
+        middleware: [function (req, res, next) {
+
+
+
+    if (req.files) { 
+        console.log(util.inspect(req.files));
+        if (req.files.myFile.size === 0) {
+                    return next(new Error("Hey, first would you select a file?"));
+        }
+        fs.exists(req.files.myFile.path, function(exists) { 
+            if(exists) { 
+                res.end("Got your file!"); 
+            } else { 
+                res.end("Well!"); 
+            } 
+        }); 
+    } 
+
+
+
+        }]
+    },
 
     // Views
     {

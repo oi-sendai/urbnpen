@@ -1,10 +1,25 @@
 var mongoose = require('mongoose');
+var timestamps = require('mongoose-timestamp');
 
-var Post = mongoose.model('Post', {
+// var Post = mongoose.model('Post', {
+//     title : String,
+//     slug : String,
+//     author : String,
+//     // time : { type : Date, default: Date.now }
+//     body : String,
+// });
+var PostSchema = new mongoose.Schema({
     title : String,
     slug : String,
+    author : String,
     body : String,
 });
+
+PostSchema.plugin(timestamps);
+
+mongoose.model('Post', PostSchema);
+var Post = mongoose.model('Post', PostSchema);
+
 
 module.exports = {
 	getPosts: function(req, res) {
