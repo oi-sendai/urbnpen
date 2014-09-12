@@ -43,45 +43,44 @@ var User = mongoose.model('User', {
 
 users = User.find();
 
-console.log(users);
-    // getListings: function(req, res) {
-    //     // console.log('getIngredient'+req, res);
-
-    //     Listing.find(function(err, listings) {
-    //             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-    //             if (err)
-    //                 res.send(err)
-    //             res.json(listings); // return all ingredients in JSON format
-    //     });
-    // },
-
 module.exports = {
     asyncHack: false,
     addUser: function(username, password, role, callback) {
-        // if(this.findByUsername(username) !== undefined)  return callback("UserAlreadyExists");
-
-        // Clean up when 500 users reached
-        // if(users.length > 500) {
-        //     users = users.slice(0, 2);
-        // }
         console.log(username, password, role, callback);
         var user= new User(); 
         user.username= username;  
         user.password= password;
         user.role= userRoles.user;
-        //save the listing and check for errors
+        //save the user and check for errors
         user.save(function(err) {
             if (err)
                 res.send(err);
         });
-        // var user = {
-        //     id:         _.max(users, function(user) { return user.id; }).id + 1,
-        //     username:   username,
-        //     password:   password,
-        //     role:       role
-        // };
-        // users.push(user);
-        // callback(null, user);
+    },
+    updateUser: function(req, res) {
+        //update the user and check for errors
+        console.log('updateUser');
+        console.log(req.params);
+
+        User.find({
+                _id : req.params.user_id
+            }, function(err, user) {
+                console.log(user);
+                if (err)
+                    res.send(err);
+                res.json(user);
+        });
+    },
+    getUsers: function(req, res) {
+        // console.log('getIngredient'+req, res);
+        User.find(function(err, users) {
+            // console.log(getUsers);
+            console.log(users);
+                // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+                if (err)
+                    res.send(err)
+                res.json(users); // return all ingredients in JSON format
+        });
     },
 
     // findOrCreateOauthUser: function(provider, providerId) {
@@ -141,9 +140,6 @@ module.exports = {
             res = result;
             asyncHack = result;
         });
-        // console.log('res=');
-        // console.log(res);
-        // return res;
     },
 
 

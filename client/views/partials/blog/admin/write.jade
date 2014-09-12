@@ -1,4 +1,4 @@
-h2 Create Blog Post {{Usernames}} 
+h2 Create Blog Post {{user}} 
 .hero
     form(name="blogPostForm" 
         ng-controller="adminBlogController"
@@ -8,6 +8,7 @@ h2 Create Blog Post {{Usernames}}
                 placeholder="Post Title"
                 ng-model="formData.title" required)
             text-angular(ng-model="formData.body")
+            input(type="hidden" ng-model="formData.body" value="user")
             input(type="file" nv-file-select uploader="{FileUploader}" options="{Object}")
             input.form-control.btn(type="submit" id="submitnew" value="Create")
             {{formData}}

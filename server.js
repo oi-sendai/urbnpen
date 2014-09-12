@@ -23,8 +23,8 @@ var express =           require('express')
 
 
 
-// mongoose.connect("localhost","cool");//credentials.mongoose);   // connect to mongoDB database on modulus.io
-mongoose.connect(credentials.mongoose);   // connect to mongoDB database on modulus.io
+mongoose.connect("localhost","cool");//credentials.mongoose);   // connect to mongoDB database on modulus.io
+// mongoose.connect(credentials.mongoose);   // connect to mongoDB database on modulus.io
 
 var app = module.exports = express();
 

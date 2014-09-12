@@ -141,11 +141,22 @@ var routes = [
 
 
     // Users
+    // This should return username + public profile
     {
         path: '/api/users',
         httpMethod: 'GET',
         middleware: [function (req, res) {
-            UserCtrl.getUsers(req, res)
+            User.getUsers(req, res)
+        }],
+        accessLevel: accessLevels.public
+    },
+    // Get user
+    // this should return entire user detail
+    {
+        path: '/api/users/:user_id',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            User.getUser(req, res)
         }],
         accessLevel: accessLevels.public
     },
@@ -155,7 +166,7 @@ var routes = [
         httpMethod: 'POST',
         middleware: [function (req, res) {
 
-            UserCtrl.addUser(req, res)
+            User.addUser(req, res)
         }],
         accessLevel: accessLevels.public
     },

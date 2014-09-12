@@ -6,6 +6,7 @@ adminBlogController.controller('adminBlogController', function(
   $scope, 
   $http, 
   $upload,
+  Auth,
   // FileUploader,
 
   PostFactory
@@ -14,6 +15,7 @@ adminBlogController.controller('adminBlogController', function(
   $scope.posts = {};
   $scope.item = {};
   $scope.formData = {'dskfjldskf':'dfsjkd'};
+  $scope.user = Auth.user;
   // $scope.uploader = new FileUploader();
   // $scope.uploaderOpts = {
   //   url: '/api/uploads'
