@@ -4,11 +4,13 @@ eshoprShop.factory('Auth', function($http, $cookieStore){
 
     var accessLevels = routingConfig.accessLevels
         , userRoles = routingConfig.userRoles
-        , currentUser = $cookieStore.get('user') || { username: '', role: userRoles.public };
+        , currentUser = $cookieStore.get('user') || { id: '', username: '', role: userRoles.public };
 
     $cookieStore.remove('user');
 
     function changeUser(user) {
+        console.log('changeUser');
+        console.log(user);
         angular.extend(currentUser, user);
     }
 

@@ -20,7 +20,8 @@ var eshoprShop = angular.module('eshoprShop', [
     'orderController',
     'galleryController',
     'pinItDirective',
-    'tumblrDirective'
+    'tumblrDirective',
+    'userController'
     // 'LocalStorageModule',
     // 'angularFileUpload',
     // 'cupboardController',
@@ -97,8 +98,12 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         // Login
         .state('anon.login', {
             url: '/login/',
-            templateUrl: 'login',
-            controller: 'LoginCtrl'
+            views:{
+                'main':{
+                    templateUrl: 'login',
+                    controller: 'LoginCtrl'
+                }
+            }
         })
         // Register
         .state('anon.register', {
@@ -149,22 +154,9 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             }
         });
 
-
-    // Contact Submissions
-    $stateProvider
-        .state('user.private.orders', {
-            url: 'orders/',
-            templateUrl: "shop/admin/orders",
-            controller: 'orderController',
-            data: {
-                access: access.public
-            }
-        });
-
-
     // Admin routes
     $stateProvider
-        .state('admin', {
+        .state('user', {
             abstract: true,
             templateUrl: 'admin',
             data: {
@@ -172,20 +164,30 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             }
         })
         // Private
-        .state('admin.admin', {
-            url: '/admin/',
-            templateUrl: 'admin/layout'
-        })
-        .state('admin.admin.write', {
-            url: 'write/',
-            controller: 'adminBlogController',
-            templateUrl: 'blog/admin/write'
-        })
-        .state('admin.admin.about', {
-            url: 'about/',
-            controller: 'aboutAdminController',
-            templateUrl: 'about/edit'
-        })
+        .state('user.admin', {
+            url: '/user/:username',
+            templateUrl: 'admin/layout',
+            controller: 'userController'
+        });
+        // .state('user.admin.write', {
+        //     url: 'write/',
+        //     controller: 'adminBlogController',
+        //     templateUrl: 'blog/admin/write'
+        // })
+        // .state('user.admin.about', {
+        //     url: 'about/',
+        //     controller: 'aboutAdminController',
+        //     templateUrl: 'about/edit'
+        // })
+        // // Contact Submissions
+        // .state('user.admin.orders', {
+        //         url: 'orders/',
+        //         templateUrl: "shop/admin/orders",
+        //         controller: 'orderController',
+        //         data: {
+        //             access: access.public
+        //         }
+        // });
         // Private Welcome
         // .state('user.private.welcome', {
         //     url: '',
@@ -205,13 +207,13 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         //     controller: 'cupboardController'
         // })
         // Private Admin
-        .state('user.private.admin', {
-            url: 'admin/',
-            templateUrl: 'private/stock',
-            data: {
-                access: access.public
-            }
-        });
+        // .state('user.private.admin', {
+        //     url: 'admin/',
+        //     templateUrl: 'private/stock',
+        //     data: {
+        //         access: access.public
+        //     }
+        // });
 
     // // Listing routes
     //  $stateProvider

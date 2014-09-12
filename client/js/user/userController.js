@@ -1,4 +1,26 @@
 //'use strict';
+// 'use strict';
+var userController = angular.module('userController', []);
+
+userController.controller('userController', function(
+    $resource,
+    $scope, 
+    $http,
+    $stateParams,
+    UserModel
+    ) { 
+    $scope.debug = "js/listing/userController";
+
+    $scope.listing;
+    $scope.username = $stateParams.username;
+
+  // function init() {
+  //   UserModel.showListing($scope.listingID).then(function(response) {
+  //       $scope.listing = response.data;
+  //   });
+  // }
+//   init();
+});
 
 eshoprShop.factory("UserModel", function($http,$resource) {
   var factory = {};

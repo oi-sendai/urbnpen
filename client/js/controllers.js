@@ -29,6 +29,7 @@ eshoprShop.controller('LoginCtrl',
             },
             function(res) {
                 console.log('activated route');
+                console.log(res);
                 $location.path('/admin/');
             },
             function(err) {
