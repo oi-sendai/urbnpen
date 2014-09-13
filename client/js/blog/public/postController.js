@@ -12,11 +12,11 @@ postController.controller('postController',function(
     $scope.debug = 'js/blog/public/postController';
     $rootScope.class ="blog";
     $scope.post = {};
-    $scope.postID = $stateParams.postID;
-    console.log($scope.postID);
+    $scope.post_id = $stateParams.post_id;
+    console.log($scope.post_id);
     function init() {
       console.log('called');
-      PostFactory.showPost($scope.postID).then(function(response) {
+      PostFactory.showPost($scope.post_id).then(function(response) {
         console.log(response);
         $scope.post = response.data;
       });

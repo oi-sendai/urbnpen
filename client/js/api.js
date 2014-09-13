@@ -71,6 +71,7 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
 
   factory.showPost = function (id) {
     console.log('called api');
+    console.log(id);
     return $http.get(url + '/' + id);
   };
 
@@ -91,7 +92,7 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
     console.log(dataObject);
     return $http.post(url+'/comment/'+ id, dataObject);
   }
-  
+
   return factory
 });
 
