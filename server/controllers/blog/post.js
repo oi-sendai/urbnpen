@@ -56,7 +56,7 @@ module.exports = {
         post.save(function(err) {
             if (err)
                 res.send(err);
-        });                      // get and return all the ingredients after you ADD one
+        });                
 	},
 	deletePost: function(req, res) {
 		console.log('deletePost:||'+req.params);
@@ -85,18 +85,21 @@ module.exports = {
 
     insertComment: function(req, res) {
         // var post_id = req.params.post_id
-        // res.send(req.params.post_id);
-        // Post.find({
-        //         _id : req.params.post_id
-        //     }, function(err, post) {
-        //         console.log(post);
-        //         if (err)
-        //             res.send(err);
-        //         res.json(post);
-        // });                     // get and return all the ingredients after you ADD one
-    },
+        res.send(req.params.post_id);
+        var comment = new Comment(); 
+        comment.name= req.body.name;  
+        comment.message= req.body.message;
+        comment.parent= req.params.post_id;
+        // comment.comments= req.body.comments;
+        console.log(comment);
+        //save the comment and check for errors
+        comment.save(function(err) {
+            if (err)
+                res.send(err);
+        });                
+    },   
 
-        // Post.find({
+        // comment.find({
         //         // _id : req.params.post_id
         //         _id : '540c4526a4232e040f000002'
         //     }, function(err, post) {
