@@ -13,12 +13,23 @@ var PostSchema = new mongoose.Schema({
     slug : String,
     author : String,
     body : String,
+    comments : Array
+});
+
+var CommentSchema = new mongoose.Schema({
+    name : String,
+    message : String,
+    author : String,
+
 });
 
 PostSchema.plugin(timestamps);
+CommentSchema.plugin(timestamps);
 
 mongoose.model('Post', PostSchema);
+mongoose.model('Comment', CommentSchema);
 var Post = mongoose.model('Post', PostSchema);
+var Comment = mongoose.model('Comment', CommentSchema);
 
 
 module.exports = {
@@ -38,6 +49,8 @@ module.exports = {
         var post = new Post(); 
         post.title= req.body.title;  
         post.body= req.body.body;
+        post.author= req.body.author;
+        post.comments= req.body.comments;
         console.log(post);
         //save the post and check for errors
         post.save(function(err) {
@@ -67,6 +80,43 @@ module.exports = {
                 res.json(post);
         });
 	},
+
+
+
+    addComment: function(req, res) {
+        res.send(req.params);
+                // console.log('addListing:||')
+                // console.log(req.body);
+
+            // var comment = new comment(); 
+            // comment.name= req.body.name;  // it's the twentieth century data is expensive
+            // comment.message= req.body.email; //
+            // comment.parentID= req.body.parentID;
+            // // comment.location= req.body.image;
+            // // console.log(comment.name);
+            // //save the comment and check for errors
+            // comment.save(function(err) {
+            //     if (err)
+            //         res.send(err);
+            // });                      // get and return all the ingredients after you ADD one
+    },
+
+        // Post.find({
+        //         // _id : req.params.post_id
+        //         _id : '540c4526a4232e040f000002'
+        //     }, function(err, post) {
+        //         var unittest = [
+
+        //                 {"name":"user1", "message":"this is really interesting"},
+        //                 {"name":"user2", "message":"someone elses opinion"}
+        //             ];
+        //         console.log('unittest');
+        //         console.log(unittest);
+        //         if (err)
+        //             res.send(err);
+        //         res.json(unittest);
+        // });
+    // },
     getPost: function(req, res) {
         console.log('getPost'+req.params);
 

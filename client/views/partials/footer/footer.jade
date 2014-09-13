@@ -2,7 +2,8 @@
     .container
         .row
             .col-md-6.center-stuff
-                p &copy; 2014 Urban Penguin
+                p &copy; 2014 
+                //Urban Penguin
             .col-md-6
                 login.right(data-access-level='accessLevels.user' ng-controller="LoginCtrl")
                     span.label(data-ng-class='{"label-info": user.role.title == userRoles.user.title, "label-success": user.role.title == userRoles.admin.title}') {{ user }}

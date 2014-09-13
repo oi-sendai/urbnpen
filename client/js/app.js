@@ -13,6 +13,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'adminBlogController',
     'sidebarBlogController',
     'postController',
+    'commentController',
     'aboutController',
     'aboutAdminController',
     'contactController',
@@ -21,7 +22,7 @@ var eshoprShop = angular.module('eshoprShop', [
     'galleryController',
     'pinItDirective',
     'tumblrDirective',
-    'userController'
+    'userController',
     // 'LocalStorageModule',
     // 'angularFileUpload',
     // 'cupboardController',
@@ -30,6 +31,7 @@ var eshoprShop = angular.module('eshoprShop', [
     // 'checkoutController',
     // 'listingController',
     // 'uiController',
+    // 'ListingModel',
     // 'addListingController',
     // 'weatherDirective',
     // 'userController',
@@ -92,6 +94,10 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                 'sidebar': {
                     // templateUrl: 'blog/public/sidebar',
                     // controller: 'publicBlogController'
+                    // templateUrl: 'blog/public/comments',
+                    // controller: 'commentController'
+                },
+                'comments':{
                 }
             }
         })

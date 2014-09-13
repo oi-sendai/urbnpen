@@ -156,7 +156,7 @@ var routes = [
         path: '/api/users/:user_id',
         httpMethod: 'GET',
         middleware: [function (req, res) {
-            User.getUser(req, res)
+            User.findById(req, res)
         }],
         accessLevel: accessLevels.public
     },
@@ -251,6 +251,18 @@ var routes = [
         middleware: [function (req, res) {
 
             PostCtrl.addPost(req, res)
+        }],
+        accessLevel: accessLevels.public
+    },
+        {
+        path: '/api/posts/comment/:postID',
+        httpMethod: 'GET',
+        middleware: [function (req, res) {
+            console.log('api route hit')
+            // res.send('working');
+            console.log(req);
+            PostCtrl.addComment(req, res);
+
         }],
         accessLevel: accessLevels.public
     },

@@ -82,7 +82,17 @@ module.exports = {
                 res.json(users); // return all ingredients in JSON format
         });
     },
-
+    getUser: function(req, res) {
+        // console.log('getIngredient'+req, res);
+        User.find(function(err, users) {
+            // console.log(getUsers);
+            console.log(users);
+                // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+                if (err)
+                    res.send(err)
+                res.json(users); // return all ingredients in JSON format
+        });
+    },
     // findOrCreateOauthUser: function(provider, providerId) {
     //     var user = module.exports.findByProviderId(provider, providerId);
     //     if(!user) {

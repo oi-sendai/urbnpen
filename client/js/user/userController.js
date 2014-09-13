@@ -14,12 +14,12 @@ userController.controller('userController', function(
     $scope.listing;
     $scope.username = $stateParams.username;
 
-  // function init() {
-  //   UserModel.showListing($scope.listingID).then(function(response) {
-  //       $scope.listing = response.data;
-  //   });
-  // }
-//   init();
+    function init() {
+      UserModel.showListing($scope.listingID).then(function(response) {
+          $scope.listing = response.data;
+      });
+    }
+    init();
 });
 
 eshoprShop.factory("UserModel", function($http,$resource) {

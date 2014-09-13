@@ -33,7 +33,7 @@ app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded());
     app.use(multer({
- 
+
           dest: './uploads/'
  
 }));
