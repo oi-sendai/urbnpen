@@ -13,11 +13,11 @@ commentController.controller('commentController',function(
     $rootScope.class ="blog";
     $scope.post_id = $stateParams.post_id;
     $scope.formData = {};
-    $scope.comments = 
-     [
-        {"name":"user1", "message":"this is really interesting"},
-        {"name":"user2", "message":"someone elses opinion"}
-    ];
+    // $scope.comments = 
+    //  [
+    //     {"name":"user1", "message":"this is really interesting"},
+    //     {"name":"user2", "message":"someone elses opinion"}
+    // ];
 
     $scope.insertComment = function(id){
         // var post_id = id;

@@ -73,16 +73,24 @@ module.exports = {
         console.log('updatePost.req.params.post_id');
 		console.log(req.params.post_id);
 
-        Post.find({
-                _id : req.params.post_id
-            }, function(err, post) {
-                console.log(post);
-                console.log(post[0].comments);
-                post[0].comments.push(req.body);
-                console.log(post);
+        Post.findById(req.params.post_id
+            , function(err, post) {
                 if (err)
                     res.send(err);
-                res.json(post);
+                console.log(post);
+                console.log('post[0].comments');
+                console.log(post.comments);
+                console.log(req.body);
+                post.comments.push(req.body);
+                post.body = "this has changed";
+                console.log(post);
+                post.save(function(err) {
+                    if (err)
+                        res.send(err);
+
+                    res.json({ message: 'Bear updated!' });
+                });
+                // res.json(post);
         });
 	},
 

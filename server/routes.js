@@ -257,7 +257,7 @@ var routes = [
     // Create a new comment
     {
         path:'/api/posts/:post_id/comment',
-        httpMethod: 'POST',
+        httpMethod: 'PUT',
         middleware: [function (req, res) {
             // console.log('api route hit')
             // console.log(req.params);
