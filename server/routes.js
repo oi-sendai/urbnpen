@@ -255,13 +255,13 @@ var routes = [
         accessLevel: accessLevels.public
     },
         {
-        path: '/api/posts/comment/:postID',
+        path: '/api/posts/comment/:post_id',
         httpMethod: 'GET',
         middleware: [function (req, res) {
             console.log('api route hit')
-            // res.send('working');
-            console.log(req);
-            PostCtrl.addComment(req, res);
+            console.log(req.params);
+            res.send(req.params);
+            // PostCtrl.insertComment();
 
         }],
         accessLevel: accessLevels.public

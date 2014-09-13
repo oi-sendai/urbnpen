@@ -83,22 +83,17 @@ module.exports = {
 
 
 
-    addComment: function(req, res) {
-        res.send(req.params);
-                // console.log('addListing:||')
-                // console.log(req.body);
-
-            // var comment = new comment(); 
-            // comment.name= req.body.name;  // it's the twentieth century data is expensive
-            // comment.message= req.body.email; //
-            // comment.parentID= req.body.parentID;
-            // // comment.location= req.body.image;
-            // // console.log(comment.name);
-            // //save the comment and check for errors
-            // comment.save(function(err) {
-            //     if (err)
-            //         res.send(err);
-            // });                      // get and return all the ingredients after you ADD one
+    insertComment: function(req, res) {
+        // var post_id = req.params.post_id
+        res.send(req.params.post_id);
+        Post.find({
+                _id : req.params.post_id
+            }, function(err, post) {
+                console.log(post);
+                if (err)
+                    res.send(err);
+                res.json(post);
+        });                     // get and return all the ingredients after you ADD one
     },
 
         // Post.find({

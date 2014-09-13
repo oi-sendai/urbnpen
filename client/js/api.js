@@ -83,10 +83,22 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
   // };
 
   factory.deletePost = function (id) {
-        return $http.delete(url + '/' + id);
+    console.log(dataObject);
+    return $http.delete(url + '/' + id);
   };
+
+  factory.insertComment = function(dataObject, id) {
+    console.log(dataObject);
+    return $http.post(url+'/comment/'+ id, dataObject);
+  }
+  
   return factory
 });
+
+
+
+
+
 
 eshoprShop.factory("DownloadsFactory", function($http,$resource) {
   var factory = {};

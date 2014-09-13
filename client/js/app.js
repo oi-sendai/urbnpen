@@ -85,7 +85,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         // Single Post
         .state('anon.post', {
-            url: '/post/:postID',
+            url: '/post/:post_id',
             views:{
                 'main':{
                     templateUrl:'blog/public/post',
