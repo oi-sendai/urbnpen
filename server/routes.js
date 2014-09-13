@@ -265,7 +265,8 @@ var routes = [
             // console.log(req.body.message);
             // res.send('comment route');
             // res.send(req.params);
-            PostCtrl.insertComment(req, res);
+            PostCtrl.updatePost(req, res);
+            // PostCtrl.insertComment(req, res);
         }],
         accessLevel: accessLevels.public
     },

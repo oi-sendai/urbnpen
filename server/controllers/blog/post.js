@@ -70,11 +70,15 @@ module.exports = {
         });
 	},
 	updatePost: function(req, res) {
-		console.log('updatePost:||'+req.params);
+        console.log('updatePost.req.params.post_id');
+		console.log(req.params.post_id);
 
         Post.find({
                 _id : req.params.post_id
             }, function(err, post) {
+                console.log(post);
+                console.log(post[0].comments);
+                post[0].comments.push(req.body);
                 console.log(post);
                 if (err)
                     res.send(err);
@@ -82,6 +86,27 @@ module.exports = {
         });
 	},
 
+    getComments: function(req, res) {
+        // var post_id = req.params.post_id
+        // res.send(req.params.post_id);
+        var comment = new Comment(); 
+        comment.name= req.body.name;  
+        comment.message= req.body.message;
+        comment.author= req.body.author;
+        comment.parent= req.params.post_id;
+        // // comment.comments= req.body.comments;
+        console.log(comment);
+        //save the comment and check for errors
+        Post.find({
+                _id : req.params.post_id
+            }, function(err, post) {
+                post.comments = comment;
+                console.log(post);
+                if (err)
+                    res.send(err);
+                res.json(post);
+        });
+    },   
 
 
     insertComment: function(req, res) {
@@ -94,8 +119,16 @@ module.exports = {
         comment.parent= req.params.post_id;
         // // comment.comments= req.body.comments;
         console.log(comment);
-        //save the comment and check for errors
+        // //save the comment and check for errors
         comment.save(function(err) {
+        //     Post.findByIdAndUpdate(
+        //         req.params.post_id,
+        //         {$push: {"Comment": {title: title, msg: msg}}},
+        //         {safe: true, upsert: true},
+        //         function(err, model) {
+        //             console.log(err);
+        //         }
+        //     );
             if (err)
                 res.send(err);
         });                
