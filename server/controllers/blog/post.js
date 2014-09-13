@@ -82,13 +82,13 @@ module.exports = {
                 console.log(post.comments);
                 console.log(req.body);
                 post.comments.push(req.body);
-                post.body = "this has changed";
+                // post.body = "this has changed";
                 console.log(post);
                 post.save(function(err) {
                     if (err)
                         res.send(err);
 
-                    res.json({ message: 'Bear updated!' });
+                    res.json(post);
                 });
                 // res.json(post);
         });

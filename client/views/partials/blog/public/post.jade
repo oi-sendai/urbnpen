@@ -7,13 +7,13 @@ article.blog-post
     h4 share on  facebook  twitter  tumblr pinterest 
     hr
     h4 Comments
-    {{post[0]}}
+    //{{post[0].comments}}
     article.comment.row(ng-repeat="comment in post[0].comments")
-        .col-md-4
+        .col-md-5
                 h5 
                     i.fa.fa-user 
-                    span &nbsp;{{comment.name}}
-            .col-md-8
+                    span &nbsp;{{comment.user}}
+            .col-md-7
                 p {{comment.message}}
     hr
     section(ng-controller="commentController")
