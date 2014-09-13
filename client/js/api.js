@@ -88,10 +88,14 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
     return $http.delete(url + '/' + id);
   };
 
-  factory.insertComment = function(dataObject, id) {
-    console.log(dataObject);
-    return $http.post(url+'/comment/'+ id, dataObject);
-  }
+  factory.insertComment = function(id, dataObject) {
+      console.log('postsFactory.insertComment');
+      console.log('id');
+      console.log(id);
+      console.log('dataObject');
+      console.log(dataObject);
+      return $http.post(url+'/comment/'+ id, dataObject);
+  };
 
   return factory
 });

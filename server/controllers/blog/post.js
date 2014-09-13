@@ -85,15 +85,15 @@ module.exports = {
 
     insertComment: function(req, res) {
         // var post_id = req.params.post_id
-        res.send(req.params.post_id);
-        Post.find({
-                _id : req.params.post_id
-            }, function(err, post) {
-                console.log(post);
-                if (err)
-                    res.send(err);
-                res.json(post);
-        });                     // get and return all the ingredients after you ADD one
+        // res.send(req.params.post_id);
+        // Post.find({
+        //         _id : req.params.post_id
+        //     }, function(err, post) {
+        //         console.log(post);
+        //         if (err)
+        //             res.send(err);
+        //         res.json(post);
+        // });                     // get and return all the ingredients after you ADD one
     },
 
         // Post.find({

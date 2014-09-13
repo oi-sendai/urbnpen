@@ -16,6 +16,7 @@ article.blog-post
                 p {{comment.message}}
         aside.comment-form.row
             form(ng-submit="insertComment()")
+                //ng-controller="postController{{post._id}}
                 .col-md-2
                     button
                         i.fa.fa-user

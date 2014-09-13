@@ -11,7 +11,7 @@ commentController.controller('commentController',function(
   ) {
     $scope.debug = 'js/blog/public/commentController';
     $rootScope.class ="blog";
-
+    $scope.post_id = $stateParams.post_id;
     $scope.formData = {};
     $scope.comments = 
      [
@@ -19,12 +19,15 @@ commentController.controller('commentController',function(
         {"name":"user2", "message":"someone elses opinion"}
     ];
 
-    $scope.insertComment = function(){
-        console.log('insertComment');
+    $scope.insertComment = function(id){
+        // var post_id = id;
+        console.log('post_id');
+        console.log($scope.post_id);
+        console.log('formData');
         console.log($scope.formData);
-        PostModel.insertComment($scope.formData).then(function(response) {
-            $scope.formData = {}; // clear the form so our user is ready to enter another
-            $scope.comments = response.data;
+        PostFactory.insertComment($scope.post_id, $scope.formData).then(function(response) {
+        // //     $scope.formData = {}; // clear the form so our user is ready to enter another
+        // //     $scope.comments = response.data;
         });
     }
 
