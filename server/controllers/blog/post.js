@@ -20,6 +20,7 @@ var CommentSchema = new mongoose.Schema({
     name : String,
     message : String,
     author : String,
+    parent: String
 
 });
 
@@ -85,12 +86,13 @@ module.exports = {
 
     insertComment: function(req, res) {
         // var post_id = req.params.post_id
-        res.send(req.params.post_id);
+        // res.send(req.params.post_id);
         var comment = new Comment(); 
         comment.name= req.body.name;  
         comment.message= req.body.message;
+        comment.author= req.body.author;
         comment.parent= req.params.post_id;
-        // comment.comments= req.body.comments;
+        // // comment.comments= req.body.comments;
         console.log(comment);
         //save the comment and check for errors
         comment.save(function(err) {

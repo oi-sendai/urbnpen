@@ -257,15 +257,15 @@ var routes = [
     // Create a new comment
     {
         path:'/api/posts/:post_id/comment',
-        httpMethod: 'GET',
+        httpMethod: 'POST',
         middleware: [function (req, res) {
             // console.log('api route hit')
             // console.log(req.params);
             // console.log(req.body.name);
             // console.log(req.body.message);
             // res.send('comment route');
-            res.send(req.params);
-            // PostCtrl.insertComment();
+            // res.send(req.params);
+            PostCtrl.insertComment(req, res);
         }],
         accessLevel: accessLevels.public
     },

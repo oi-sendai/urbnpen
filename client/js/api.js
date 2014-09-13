@@ -94,7 +94,7 @@ eshoprShop.factory("PostFactory", function($http,$resource) {
       console.log(id);
       console.log('dataObject');
       console.log(dataObject);
-      return $http.post(url+ '/' + id + '/comments', dataObject);
+      return $http.post(url+ '/' + id + '/comment', dataObject);
   };
 
   return factory
