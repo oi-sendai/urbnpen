@@ -124,6 +124,7 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
             views:{
                 'main':{
                     templateUrl: 'about/about',
+                    controller: 'aboutController'
                 }
             }
 
