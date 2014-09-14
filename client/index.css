@@ -191,16 +191,35 @@ ul.blog-list li a{
     border-bottom:1px solid #282828;
 }
 
-.input.comment {
-    padding: 5px;
-    border-radius: 4px;
-    border: 2px solid #746C6C;
-    width: 63%;
+input.comment {
+padding: 2px;
+border-radius: 4px;
+border: 2px solid #746C6C;
+    /*width: 63%;*/
     /* box-shadow: 0px 0px 1px 1px #C48888; */
-    margin-bottom: 25px;
+    /*margin-bottom: 25px;*/
     /* line-height: 1rem; */
 }
 
 .break-word {
    word-wrap: break-word;
 }
+
+section.add-comment {
+    margin-top:15px;
+    float: left;
+}
+section.add-comment {
+
+}
+
+.animate-enter {
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 1s linear all;
+    opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+    opacity: 1;
+}
+
