@@ -1,6 +1,6 @@
 ul.dots
     li.dot(ng-repeat="slide in slides") 
-        a(href="#" ng-click="open('sm')") 
+        a(href="#" ng-click="open()") 
             img.slide.slide-animation(
                 ng-src="{{slide.image}}"
                 title="{{slide.description}}")

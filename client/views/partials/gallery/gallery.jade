@@ -1,10 +1,14 @@
-.slider
-	img.slide.slide-animation(ng-repeat="slide in slides" 
-		ng-hide="!isCurrentSlideIndex($index)"
-		ng-src="{{slide.image}}")
-a.arrow.next(href="#" ng-click="prevSlide()")
-	i.fa.fa-arrow-circle-left
-	
-a.arrow.prev(href="#" ng-click="nextSlide()") 
-	i.fa.fa-arrow-circle-right
+article.blog-post
+    ul.dots
+        li.dot(ng-repeat="slide in slides") 
+            a(href="#" ng-click="open(slide)") 
+                img.slide.slide-animation(
+                    ng-src="{{slide.image}}"
+                    title="{{slide.description}}")
+    // ng-hide="!isCurrentSlideIndex($index)"
+    // ng-click="setCurrentSlideIndex($index);") 
+    // ng-class="{'active':isCurrentSlideIndex($index)}" 
 
+        button.btn.btn-default(ng-click="open('lg')") Large modal
+        button.btn.btn-default(ng-click="open('sm')") Small modal
+        div(ng-show="selected") Selection from a modal: {{ selected }}

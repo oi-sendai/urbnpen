@@ -1,90 +1,59 @@
 // 'use strict';
-var galleryController = angular.module('galleryController', ['ngAnimate']);
+var galleryController = angular.module('galleryController', ['ui.bootstrap','modalImageController']);
 
 galleryController.controller('galleryController', function(
     $resource,
     $scope,
     $rootScope, 
     $http,
-    $modal,
-    RecipeFactory,
-    IngredientFactory
+    $timeout,
+    $modal
     ) { 
 
   	$scope.works = 'js/gallery/galleryController';
     $rootScope.class ="gallery";
 
-	// $scope.slides = [
-	//     // {image: '/images/ioana/p1.jpg', description: 'Image 00'},
-	//     {image: '/images/ioana/p2.jpg', description: 'Image 01'},
-	//     {image: '/images/ioana/p3.jpg', description: 'Image 02'},
-	//     {image: '/images/ioana/p4.jpg', description: 'Image 03'},
-	//     {image: '/images/ioana/p5.jpg', description: 'Image 04'}
-	// ];
+	$scope.slides = [
+	    // {image: '/images/ioana/p1.jpg', description: 'Image 00'},
+	    {image: '/images/ioana/p2.jpg', description: 'Image 01'},
+	    {image: '/images/ioana/p3.jpg', description: 'Image 02'},
+	    {image: '/images/ioana/p4.jpg', description: 'Image 03'},
+	    {image: '/images/ioana/p5.jpg', description: 'Image 04'}
+	];
 
- //    $scope.modalInstance = $modal.open({
- //      templateUrl: 'gallery/gallerymodal',
- //      // template: '<p>this is the modal</p>',
- //      controller: $scope.ModalInstanceCtrl,
- //      size: 'lg',
- //      resolve: {
- //        items: function () {
- //          return $scope.items;
- //        }
- //      }
- //    });
-    // $scope.ModalInstanceCtrl = function(){
-    //     return 'this could be a directive'+'is this an example of a closure';
-    // }
+ 
 
-	   //    $scope.currentIndex = 0;
 
-    //     $scope.setCurrentSlideIndex = function (index) {
-    //         $scope.currentIndex = index;
-    //     };
+    $scope.open = function(slide){
+        console.log(slide);
+        $modal.open({
+          templateUrl: 'gallery/gallerymodal',
+          // template: '<p>this is the modal</p>',
+          controller: 'modalImageController',
+          size: 'md',
+          resolve: {
+            thing: function () {
+              return slide;
+            }
+          }
+        });
+    }
+});
+var modalImageController = angular.module('modalImageController', ['ui.bootstrap']);
 
-    //     $scope.isCurrentSlideIndex = function (index) {
-    //         return $scope.currentIndex === index;
-    //     };
+modalImageController.controller('modalImageController', function
+    ($scope,$modalInstance, thing) {
+        console.log(thing);
+  // $scope.items = items;
+  $scope.thing = thing;
+  // $scope.selected = {
+  //   item: $scope.items[0]
+  // };
 
-    //             $scope.prevSlide = function () {
-    //         $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-    //     };
 
-    //     $scope.nextSlide = function () {
-    //         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
-    //     };
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+  console.log($scope);
 
-    //     $scope.prevSlide = function () {
-    //         $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-    //     };
-
-    //     $scope.nextSlide = function () {
-    //         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
-    //     };
-        // forked from http://onehungrymind.com/build-sweet-photo-slider-angularjs-animate/
-
-})
-.animation('.slide-animation', function () {
-        // return {
-        //     addClass: function (element, className, done) {
-        //         if (className == 'ng-hide') {
-        //             // ANIMATION CODE GOES HERE 
-        //             // TweenMax.to(element, 0.5, {left: -element.parent().width(), onComplete: done });                   
-        //         }
-        //         else {
-        //             done();
-        //         }
-        //     },
-        //     removeClass: function (element, className, done) {
-        //         if (className == 'ng-hide') {
-        //             // ANIMATION CODE GOES HERE
-        //             // TweenMax.set(element, { left: element.parent().width() });
-        //             // TweenMax.to(element, 0.5, {left: 0, onComplete: done });
-        //         }
-        //         else {
-        //             done();
-        //         }
-        //     }
-        // };
-    });
+});
