@@ -1,6 +1,7 @@
-article.blog-post
+article.blog-post(ng-repeat="collection in collections")
+    h3 {{collection.description}}
     ul.dots
-        li.dot(ng-repeat="slide in slides") 
+        li.dot(ng-repeat="slide in collection.slides") 
             a(href="#" ng-click="open(slide)") 
                 img.slide.slide-animation(
                     ng-src="{{slide.image}}"

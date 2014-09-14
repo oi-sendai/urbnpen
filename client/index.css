@@ -67,13 +67,17 @@ ul.customer-menu {
 }*/
 ul.dots {
     list-style: none;
+    padding:0;
 }
 li.dot {
     margin:0 10px 10px 0;
     float: left
 }
+li.dot:last-of-type{
+    margin-right:0;
+}
 li.dot a img {
-    height:70px;
+    height:66px;
 }
 /* style.css */
 
