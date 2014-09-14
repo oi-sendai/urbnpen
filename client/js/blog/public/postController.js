@@ -7,12 +7,14 @@ postController.controller('postController',function(
   $http, 
   $stateParams,
   $rootScope,
+  Auth,
   PostFactory
   ) {
     $scope.debug = 'js/blog/public/postController';
     $rootScope.class ="blog";
     $scope.post = {};
     $scope.formData = {};
+    $scope.user = Auth.user;
     $scope.post_id = $stateParams.post_id;
     console.log($scope.post_id);
     function init() {
