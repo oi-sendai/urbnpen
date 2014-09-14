@@ -222,6 +222,9 @@ section.add-comment {
 section.add-comment {
 
 }
+section{
+    float: left;
+}
 
 .animate-enter {
     -webkit-transition: 1s linear all; /* Chrome */

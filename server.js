@@ -17,14 +17,14 @@ var express =           require('express')
 
 
 
-    var multer = require('multer');
+    // var multer = require('multer');
 
 
 
 
 
-mongoose.connect("localhost","cool");//credentials.mongoose);   // connect to mongoDB database on modulus.io
-// mongoose.connect(credentials.mongoose);   // connect to mongoDB database on modulus.io
+// mongoose.connect("localhost","cool");//credentials.mongoose);   // connect to mongoDB database on modulus.io
+mongoose.connect(credentials.mongoose);   // connect to mongoDB database on modulus.io
 
 var app = module.exports = express();
 
@@ -32,11 +32,11 @@ app.set('views', __dirname + '/client');
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded());
-    app.use(multer({
+//     app.use(multer({
 
-          dest: './uploads/'
+//           dest: './uploads/'
  
-}));
+// }));
 app.use(bodyParser.json());
 // app.use(bodyParser({uploadDir:'./client/css'}));
 app.use(methodOverride());

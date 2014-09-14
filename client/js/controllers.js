@@ -47,14 +47,14 @@ eshoprShop.controller('RegisterCtrl',
     $scope.role = Auth.userRoles.user;
     $scope.userRoles = Auth.userRoles;
 
-    $scope.register = function() {
+    $scope.register = function(postId) {
         Auth.register({
                 username: $scope.username,
                 password: $scope.password,
                 role: $scope.role
             },
             function() {
-                $location.path('/');
+                $location.path('/post/'+postId);
             },
             function(err) {
                 $rootScope.error = err;
