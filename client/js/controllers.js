@@ -21,7 +21,7 @@ eshoprShop.controller('LoginCtrl',
 ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
 
     $scope.rememberme = true;
-    $scope.login = function() {
+    $scope.login = function(postId) {
         Auth.login({
                 username: $scope.username,
                 password: $scope.password,
@@ -30,7 +30,7 @@ eshoprShop.controller('LoginCtrl',
             function(res) {
                 console.log('activated route');
                 console.log(res);
-                $location.path('/admin/');
+                $location.path('/post/'+postId);
             },
             function(err) {
                 $rootScope.error = "Failed to login";

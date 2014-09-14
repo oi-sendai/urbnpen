@@ -27,9 +27,9 @@ article.blog-post
                 .col-md-7
                     input.comment(type="textarea" ng-model="formData.message" value="message")
 
-    //section.add-comment(ng-controller="LoginCtrl")
+    section.add-comment(ng-controller="LoginCtrl")
         aside.comment-form.row
-            form.form-horizontal(ng-submit="login()", name="loginForm", role="form")
+            form.form-horizontal(ng-submit="login(post[0]._id)", name="loginForm", role="form")
                 .form-group
                     label.control-label.col-sm-2(for="username") Username
                     .col-sm-10
