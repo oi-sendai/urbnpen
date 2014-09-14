@@ -1,3 +1,5 @@
+{{debug}}
+
 article.blog-post
     h1.post-title {{post[0].title}}
     .post-body(ng-bind-html="post[0].body")
@@ -16,22 +18,19 @@ article.blog-post
             .col-md-7
                 p {{comment.message}}
     hr
-    section(ng-controller="commentController")
+    section(ng-controller="publicBlogController")
         aside.comment-form.row
             form(ng-submit="insertComment()")
-                //ng-controller="postController{{post._id}}
                 .col-md-2
-                    button
+                    button(type="submit")
                         i.fa.fa-user
-                col-md-4
-                    .row
-                        input.comment(type="text" ng-model="formData.user" value="user")
-                col-md-4
-                    .row
-                        input.comment(type="textarea" ng-model="formData.message" value="message")
+                .col-md-4
+                    input.comment.break-word(type="text" ng-model="formData.user" value="user")
+                .col-md-4
+                    input.comment(type="textarea" ng-model="formData.message" value="message")
 
 
-                       fdfdf fdfgdfgfjkljsdflk
+
 
 
 

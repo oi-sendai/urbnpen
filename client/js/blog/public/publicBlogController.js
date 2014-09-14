@@ -54,6 +54,7 @@ publicBlogController.controller('publicBlogController',function(
     $scope.nextPageDisabled = function() {
       return $scope.currentPage === $scope.pageCount() ? "disabled" : "";
     };
+
 });
 
 eshoprShop.filter('pagination', function() {

@@ -171,15 +171,15 @@ eshoprShop.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
         })
         // Private
         .state('user.admin', {
-            url: '/user/:username',
+            url: '/user/',
             templateUrl: 'admin/layout',
-            controller: 'userController'
+            // controller: 'userController'
+        })
+        .state('user.admin.write', {
+            url: 'write/',
+            controller: 'adminBlogController',
+            templateUrl: 'blog/admin/write'
         });
-        // .state('user.admin.write', {
-        //     url: 'write/',
-        //     controller: 'adminBlogController',
-        //     templateUrl: 'blog/admin/write'
-        // })
         // .state('user.admin.about', {
         //     url: 'about/',
         //     controller: 'aboutAdminController',

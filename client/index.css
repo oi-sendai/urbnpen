@@ -45,7 +45,7 @@ header .fa {
     color:#C44D4D;
 }
 .main-view-container.blog {
-    /*background: url('images/penguin.png') no-repeat top right;*/
+    background: url('images/penguin.png') no-repeat top right;
 }
 .main-view-container {
     min-height: 600px;
@@ -85,6 +85,7 @@ li.dot a img {
     background:white;
     border-radius:4px;
     margin-top:30px;
+    margin-bottom:30px;
     float: left;
 }
 
@@ -198,4 +199,8 @@ ul.blog-list li a{
     /* box-shadow: 0px 0px 1px 1px #C48888; */
     margin-bottom: 25px;
     /* line-height: 1rem; */
+}
+
+.break-word {
+   word-wrap: break-word;
 }

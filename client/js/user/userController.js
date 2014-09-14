@@ -14,6 +14,14 @@ userController.controller('userController', function(
     $scope.listing;
     $scope.username = $stateParams.username;
 
+    user = {
+      "username" : "A User",
+      "contactstring" : "croftnotworking@gmail.com",
+      "listingid" : ["push from listing creation"],
+      "location" : "Aberdeen, Scotland",
+      "image" : '<i class="fa.fa-user" data-id="somestring">'
+    };
+
     function init() {
       UserModel.showListing($scope.listingID).then(function(response) {
           $scope.listing = response.data;
